@@ -3,12 +3,12 @@ import React from "react";
 import Aux from "../../../hoc/Aux1/Aux1";
 import Button from "../../UI/Button/Button";
 
-const OrderSummary = () => {
-  const ingredientSummary = Object.keys(this.props.ingredients).map((igKey) => {
+const OrderSummary = (props) => {
+  const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {
     return (
       <li key={igKey}>
         <span style={{ textTransform: "capitalize" }}>{igKey}</span>:{" "}
-        {this.props.ingredients[igKey]}
+        {props.ingredients[igKey]}
       </li>
     );
   });
@@ -19,13 +19,13 @@ const OrderSummary = () => {
       <p>A delicious burger with the following ingredients:</p>
       <ul>{ingredientSummary}</ul>
       <p>
-        <strong>Total Price: {this.props.price.toFixed(2)}</strong>
+        <strong>Total Price: {props.price.toFixed(2)}</strong>
       </p>
       <p>Continue to Checkout?</p>
-      <Button btnType="Danger" clicked={this.props.purchaseCancelled}>
+      <Button btnType="Danger" clicked={props.purchaseCancelled}>
         CANCEL
       </Button>
-      <Button btnType="Success" clicked={this.props.purchaseContinued}>
+      <Button btnType="Success" clicked={props.purchaseContinued}>
         CONTINUE
       </Button>
     </Aux>
